@@ -32,21 +32,26 @@ int GetResult(vector &list)
 12 4 84
 """
 
+# 能过
+n = input()
 s = """0 25 75
 4 18 78
 8 11 81
-12 4 84
-"""
+12 4 84"""
 print(s)
 
-# 或者
+# //鸡翁、鸡母、鸡雏分别为x, y, z 三个变量。
+# //x+y+z=100
+# //5x+3y+z/3=100
+# //确定x即可算出y和z，若y和z为非负整数，则为有效结果，输出。
+# 方法二
 while True:
     try:
         n = int(input())
         # 鸡公最多买20只
         for x in range(21):
-            y = (100-7*x)/4 # 鸡母的数量
-            z = 100 - x - y # 鸡雏的数量
+            y = (100 - 7 * x) / 4  # 鸡母的数量
+            z = 100 - x - y  # 鸡雏的数量
             if y == int(y) and y >= 0 and z >= 0:
                 print(x, int(y), int(z))
     except EOFError:

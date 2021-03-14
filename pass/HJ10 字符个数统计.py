@@ -22,6 +22,10 @@ abc
 复制
 3
 """
+
+# set 去重
+# len 求个数
+
 while 1:
     try:
         print(len(set(list(input()))))

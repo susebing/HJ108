@@ -46,7 +46,30 @@ fang 90
 ning 70
 yang 50
 """
+# 1-考虑如何接受数据
+# 2-如何将成绩姓名，输入顺序三个变量加入数组
+# 3-如何根据排序标志（0，1），以及成绩相同时，如何排序
+# 4-详细了解python 的sorted()，可以通过 lambda x:(多个x的属性，多参数排序)
+# 方法一
+while True:
+    try:
+        n = int(input())
+        flag = input()
+        res = []
+        for i in range(n):
+            read_in = input().split()
+            name, value, k = read_in[0], int(read_in[1]), i
+            res.append((name, value, k))
+        if flag == '0':  # 降序
+            res = sorted(res, key=lambda x: (-x[1], x[2]))
+        else:  # 升序
+            res = res = sorted(res, key=lambda x: (x[1], x[2]))
+        for j in res:
+            print('{} {}'.format(j[0], j[1]))
+    except:
+        break
 
+# 方法二
 while True:
     try:
         num = int(input())

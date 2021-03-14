@@ -17,32 +17,38 @@
 复制
 true
 """
+# 本题相对来说比较简单，使用深度优先搜素算法即可。
+# 对输入的数进行分组：
+# 5的倍数一组 arr5,
+# 3的倍数一组 arr3，
+# 剩余的数一组 arr。
+# 这三组数的和需要满足如下关系：
 
 while True:
     try:
         n = int(input())
         a = list(map(int, input().split()))
-        x = []
-        y = []
-        z = []
+        arr5 = []
+        arr3 = []
+        arr = []
         for i in a:
             if i % 5 == 0:
-                x.append(i)
+                arr5.append(i)
             elif i % 3 == 0:
-                y.append(i)
+                arr3.append(i)
             else:
-                z.append(abs(i))
+                arr.append(abs(i))
 
-        s1 = sum(x)
-        s2 = sum(y)
-        s3 = sorted(z, reverse=True)
+        sum_arr5 = sum(arr5)
+        sum_arr3 = sum(arr3)
+        sum_arr = sorted(arr, reverse=True)
 
-        for i in s3:
-            if s1 < s2:
-                s1 += i
+        for i in sum_arr:
+            if sum_arr5 < sum_arr3:
+                sum_arr5 += i
             else:
-                s2 += i
-        print('true' if s1 == s2 else 'false')
+                sum_arr3 += i
+        print('true' if sum_arr5 == sum_arr3 else 'false')
 
     except:
         break

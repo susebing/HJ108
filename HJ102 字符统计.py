@@ -26,15 +26,21 @@ aadddccddc
 dca
 """
 
+# 字符统计：大小写字母，数字，空格,
+# 并按照出现的次数由大到小输出
+# 思路：先数组统计出现的字符及个数，然后用multimap存储，输出时先存储到栈中在输出
+
+# isalpha   大小写字母
+# isdigit   数字
+# isspace   空格
+
 while True:
     try:
         list1 = []
         arr = input()
         dic = {}
         for i in arr:
-            if not (i.isalpha() or i.isdigit() or i.isspace()):
-                continue
-            else:
+            if i.isalpha() or i.isdigit() or i.isspace():
                 if i in dic:
                     dic[i] += 1
                 else:

@@ -31,15 +31,25 @@ void
 1 2 3 4 9 25 55 64
 """
 
+# a 没有用？
+#
+# 0表示按升序，1表示按降序
+# reverse=c
+# 方法一
 while True:
     try:
         a = int(input())
         b = list(map(int, input().split()))
         c = int(input())
-        ans = sorted(b, reverse=c)
-        res = ''
-        for i in ans:
-            res = res + str(i) + " "
-        print(res)
+        print(' '.join(map(str, sorted(b, reverse=c))))
     except:
         break
+
+# 方法二
+while True:
+    try:
+        a, b, c = input(), map(int, input().split()), input()
+        print(" ".join(map(str, sorted(b))) if c == "0" else " ".join(map(str, sorted(b, reverse=True))))
+    except:
+        break
+

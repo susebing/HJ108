@@ -30,6 +30,8 @@ A Famous Saying: Much Ado About Nothing (2012/8).
 A aaAAbc dFgghh: iimM nNn oooos Sttuuuy (2012/8).
 """
 
+
+
 while True:
     try:
         new = input()

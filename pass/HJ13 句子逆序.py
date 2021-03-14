@@ -27,6 +27,10 @@ I am a boy
 复制
 boy a am I
 """
+
+# 把输入的句子分割成单词数组
+# 使用 [::-1] 倒序单词数组
+
 while 1:
     try:
         print(' '.join(input().split()[::-1]))

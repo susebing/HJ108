@@ -41,6 +41,15 @@ c:\\
 d:\\
 """
 
+# 方法一 耗时较长
+import re
+
+params = list(re.finditer(r'([^ "]+)|(".+?")', input()))
+print(len(params))
+for p in params:
+    print(p.group().strip('"'))
+
+# 方法二 耗时短
 while True:
     try:
         s = input().split()

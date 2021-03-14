@@ -16,6 +16,9 @@ abcd
 复制
 dcba
 """
+
+# 把输入字符串使用 [::-1] 倒序
+
 while 1:
     try:
         print(input()[::-1])

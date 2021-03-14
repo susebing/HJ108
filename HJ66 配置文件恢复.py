@@ -4,14 +4,13 @@
 有6条配置命令，它们执行的结果分别是：
 命   令	执   行
 
-reset	reset what
-reset board	board fault
-board add	where to add
-board delete	no board at all
+reset	            reset what
+reset board	        board fault
+board add	        where to add
+board delete	    no board at all
 reboot backplane	impossible
-backplane abort	install first
-
-he he	unknown command
+backplane abort	    install first
+he he	            unknown command
 
 注意：he he不是命令。
 

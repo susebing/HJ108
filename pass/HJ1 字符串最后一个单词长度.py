@@ -15,6 +15,11 @@ hello world
 复制
 5
 """
+
+# split 分割
+# -1 取最后一个
+# len 求长度
+
 while 1:
     try:
         print(len(input().split()[-1]))

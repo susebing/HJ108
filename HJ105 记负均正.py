@@ -19,12 +19,25 @@
 -13
 -4
 -7
+
 输出
 复制
 3
 0.0
 """
 
+# 方法一
+a, b = [], []
+while 1:
+    try:
+        i = int(input())
+        a.append(int(i)) if int(i) < 0 else b.append(int(i))
+    except:
+        break
+print(len(a))
+print(round(sum(b) / len(b), 1) if b else 0.0)
+
+# 方式二
 n = []
 k = 0
 while True:

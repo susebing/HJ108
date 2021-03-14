@@ -51,3 +51,18 @@ while 1:
             print('NG')
     except:
         break
+
+# 方法二
+import re
+
+while 1:
+    try:
+        s = input()
+        a = re.findall(r'(.{3,}).*\1', s)
+        b1 = re.findall(r'\d', s)
+        b2 = re.findall(r'[A-Z]', s)
+        b3 = re.findall(r'[a-z]', s)
+        b4 = re.findall(r'[^0-9A-Za-z]', s)
+        print('OK' if ([b1, b2, b3, b4].count([]) <= 1 and a == [] and len(s) > 8) else 'NG')
+    except:
+        break

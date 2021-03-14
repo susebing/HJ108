@@ -17,6 +17,8 @@
 10
 """
 
+# int 类型转换，参数1：str, 参数2 int
+
 while 1:
     try:
         print(int(input(), 16))

@@ -40,10 +40,14 @@
 31+33+35+37+39+41
 """
 
+# //数学公式直接可以推出来首项是m*m-m+1,有m项
+# 已知了等差数列的Sn和n，就可以解出a1；在这里a1=m*m-m+1；
+# 然后从a1开始输出连续的m个奇数就行了；
+
 while True:
     try:
         a = int(input())
-        ary = list(range(a * a - a + 1, a * a + a, 2))
-        print("+".join(map(str, ary)))
+        arr = list(range(a * a - a + 1, a * a + a, 2))
+        print("+".join(map(str, arr)))
     except:
         break

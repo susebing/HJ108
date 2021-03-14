@@ -46,6 +46,11 @@
 0
 """
 
+# 题目看懂的难度大于程序本身。
+# 乍一看，题目挺繁琐，实际上就是纸老虎，
+# 就是检查每个输入参数是否超出给定范围，
+# 是就输出-1，否就输出0
+
 while True:
     try:
         x, y = map(int, input().split())
@@ -80,5 +85,57 @@ while True:
             print(-1)
         else:
             print(0)
+    except:
+        break
+
+# 方法二
+"""
+根据评论区讨论和样例说明，简单总结下题目要进行的操作：
+1，数据表行列范围都是[0,9].
+2，交换的坐标行列数要在输入的表格大小行列数范围[0, m)x[0, n)内.
+3，插入的 x 位置要在 [0, m) 范围内，插入的 y 位置要在 [0, n) 范围内.
+4，要检查的位置 (x,y) 要在 [0, m)x[0, n) 内.
+
+以上条件若满足输出'0'，否则输出'-1'
+"""
+
+while True:
+    try:
+        # 数据表大小
+        m, n = map(int, input().split())
+        # 要交换的两个坐标位置
+        x1, y1, x2, y2 = map(int, input().split())
+        # 进行插入的行
+        insert_x = int(input())
+        # 进行插入的列
+        insert_y = int(input())
+        # 要查找的坐标位置
+        x, y = map(int, input().split())
+
+        # 1，数据表行列范围都是[0,9]，若满足输出'0'，否则输出'-1'
+        if (0 <= m <= 9) and (0 <= n <= 9):
+            print('0')
+        else:
+            print('-1')
+        # 2，交换的坐标行列数要在输入的表格大小行列数范围[0, m)x[0, n)内
+        if (0 <= x1 < m) and (0 <= y1 < n) and (0 <= x2 < m) and (0 <= y2 < n):
+            print('0')
+        else:
+            print('-1')
+        # 3.1，插入的x坐标要在 [0, m) 范围内
+        if (0 <= insert_x < m) and (m < 9):
+            print('0')
+        else:
+            print('-1')
+        # 3.2，插入的y坐标要在 [0, n) 范围内
+        if (0 <= insert_y < n) and (n < 9):
+            print('0')
+        else:
+            print('-1')
+        # 4，要检查的位置 (x,y) 要在 [0, m)x[0, n) 内
+        if (0 <= x < m) and (0 <= y < n):
+            print('0')
+        else:
+            print('-1')
     except:
         break

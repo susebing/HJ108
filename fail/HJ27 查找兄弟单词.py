@@ -21,6 +21,31 @@
 bca
 """
 
+# 尼玛，出题的语文水平简直服了。一道破题，坑比要求还多。
+# 1.输出不是一行，而是两行，分别是数量及对应的单词。
+# 2.要判断一下，如果兄弟单词列表为空或者输入的数字大于列表的长度，都不进行输出。。。
+# 3.强行把简单题目难度上升到困难，你们开心就好。
+# 方法一
+from collections import defaultdict
+
+while True:
+    try:
+        dd = defaultdict(list)
+        a = input().split()
+        # words是输入的单词，lookup是要查找的单词，num是要查找兄弟单词的索引，brothers是找到的兄弟单词列表
+        words, lookup, num, brothers = a[1:1 + int(a[0])], a[-2], int(a[-1]), []
+        for i in words:
+            dd["".join(sorted(i))].append(i)
+        for i in dd["".join(sorted(lookup))]:
+            if i != lookup: brothers.append(i)
+        # 下面这两行坑的老子调了半个小时。
+        print(len(brothers))
+        if brothers and num <= len(brothers):
+            print(sorted(brothers)[num - 1])
+    except:
+        break
+
+# 方法二
 while True:
     try:
         s = input().split(' ')

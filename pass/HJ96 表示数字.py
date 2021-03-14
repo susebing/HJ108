@@ -22,6 +22,9 @@ Jkdi234klowe90a3
 Jkdi*234*klowe*90*a*3*
 """
 
+# 将数字周围都加上*  两个数字中间肯定有两个** 然后替换掉就行了
+# 正则 sub + lambda 替换，非常简单
+
 import re
 
 while 1:
@@ -29,5 +32,14 @@ while 1:
         s = input()
         a = re.sub('\d+', lambda x: x.group(0).replace(x.group(0), f'*{x.group(0)}*'), s)
         print(a)
+    except:
+        break
+
+# 方法二
+import re
+
+while 1:
+    try:
+        print(re.sub('(\d+)', '*\g<1>*', input()))
     except:
         break

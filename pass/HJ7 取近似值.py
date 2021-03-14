@@ -17,6 +17,8 @@
 6
 """
 
+# +0.5  使用 int 强制类型转换比 round 好
+
 while 1:
     try:
         print(int(float(input())+0.5))

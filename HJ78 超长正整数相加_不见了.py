@@ -34,6 +34,17 @@ return null;
 100000000000000000000000000000000000000000000000000
 """
 
+# 一开始还以为有很多个数组，没想到就两个数组，题目真的让人产生误解
+# python只需要两行就能通过：
+# 方法一
+while True:
+    try:
+        a, b, c, d = input(), list(map(int, input().split())), input(), list(map(int, input().split()))
+        print("".join(map(str, sorted(list(set(b + d))))))
+    except:
+        break
+
+# 方法二
 while True:
     try:
         a = input()

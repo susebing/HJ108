@@ -27,7 +27,47 @@ A A A A
 复制
 NONE
 """
+# 方法一
+# 思路：对所有数字全排列，计算每种排列能否凑成24（题目默认按照先后顺序计算，即（(a+b)+c))+d模式。
+# 如果joker 或 JOKER 在输入序列中，返回ERROR
+# 当有一个满足的解时，返回；遍历完所有排列，如果没有满足的解，返回NONE
+from itertools import permutations
 
+while True:
+    try:
+        def game24(pokers):
+            dic = {'A': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9', '10': '10',
+                   'J': '11', 'Q': '12', 'K': '13'}
+            ops = r'+-*/'
+            exp = '((%s %s %s) %s %s )%s %s'  ## 这道题默认括号是这么加的
+            for a in permutations(pokers):  ## nums 的全排列
+                for op1 in ops:
+                    for op2 in ops:
+                        for op3 in ops:
+                            t = exp % (dic[a[0]], op1, dic[a[1]], op2, dic[a[2]], op3, dic[a[3]]) if check(
+                                exp % (dic[a[0]], op1, dic[a[1]], op2, dic[a[2]], op3, dic[a[3]])) else False
+                            if t:  ## 这题只需要求出一个满足要求的等式即可
+                                result = a[0] + op1 + a[1] + op2 + a[2] + op3 + a[3]
+                                return result
+            return 'NONE'
+
+
+        def check(exp):  # 为了排除中间/0的情况，并且若等式值为24，返回True
+            try:
+                return int(eval(exp) == 24)
+            except:
+                return False
+
+
+        pokers = input().split(' ')
+        if 'joker' in pokers or 'JOKER' in pokers:
+            print('ERROR')
+        else:
+            print(game24(pokers))
+    except:
+        break
+
+# 方法二
 # poke dictionary
 pokedict = {'A': 1, 'J': 11, 'Q': 12, 'K': 13}
 operators = ['+', '-', '*', '/']

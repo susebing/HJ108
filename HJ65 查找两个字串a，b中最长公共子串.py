@@ -18,6 +18,9 @@ abcsafjklmnopqrstuvw
 jklmnop
 """
 
+# 思路：动态规划经典问题，加一个start标记即可,注意将较短子串最先出现的那个输出
+# 先确定那个长，那个短，短的切片，在长的中找
+
 while True:
     try:
         str1 = input()

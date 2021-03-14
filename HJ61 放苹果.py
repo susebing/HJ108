@@ -36,19 +36,23 @@ public static int count(int m, int n)
 """
 
 
-def f(m, n):
-    if m == 0 or n == 1:
+# 把M个同样的苹果放在N个同样的盘子里，
+# 允许有的盘子空着不放，问共有多少种不同的分法？
+# （用K表示）5，1，1和1，5，1 是同一种分法。
+def put(m, n):
+    # put(m,n-1)有空盘子的分法数（递归）
+    # put(m-n,n)无空盘子的分法数
+    if (n == 1) or (m < 1):
         return 1
-    if m < 0 or n < 0:
-        return 0
+    if m < n:
+        return put(m, m)
     else:
-        return (f(m, n - 1) + f(m - n, n))
+        return (put(m, n - 1) + put(m - n, n))
 
 
-while True:
+while 1:
     try:
         m, n = map(int, input().split())
-        print(f(m, n))
-
+        print(put(m, n))
     except:
         break

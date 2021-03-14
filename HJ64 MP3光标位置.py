@@ -33,6 +33,8 @@ UUUU
 7
 """
 
+# 题目说的很清晰，按题目给的分类写对应代码就好
+
 while True:
     try:
         num = int(input())

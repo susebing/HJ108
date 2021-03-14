@@ -28,9 +28,13 @@ abc
 true
 """
 
+# python两行代码解决，
+# 思路：
+# 使用set，集合的交。
+
 while True:
     try:
-        a, b = set(input()), set(input())
-        print("true" if a & b == a else "false")
+        set1, set2 = set(input()), set(input())
+        print("true" if set1 & set2 == set1 else "false")
     except:
         break

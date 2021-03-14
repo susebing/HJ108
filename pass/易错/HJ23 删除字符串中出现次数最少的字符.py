@@ -19,7 +19,23 @@ abcdd
 复制
 dd
 """
+# 方法一
+from collections import defaultdict
 
+while True:
+    try:
+        a = input()
+        dd = defaultdict(int)
+        for i in a:
+            dd[i] += 1
+        for i in dd:
+            if dd[i] == min(dd.values()):
+                a = a.replace(i, "")
+        print(a)
+    except:
+        break
+
+# 方法二
 # 首先计算出最少次数是多少
 # 遍历每个字符，如果次数等于最少，则不加入结果数组，否则加入结果数组
 
@@ -36,5 +52,3 @@ while 1:
         print(''.join(res))
     except:
         break
-
-

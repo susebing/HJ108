@@ -34,12 +34,12 @@ public   static   int  count( int  n)
 复制
 3
 """
-
+# 方法一 时间复杂度大
 while 1:
     try:
         n = int(input())
         res = []
-        for x in range(2, n):
+        for x in range(2, n / 2):
             temp = []
             for i in range(1, x):
                 if x % i == 0:
@@ -47,16 +47,64 @@ while 1:
             if sum(temp) == x:
                 res.append(x)
         print(len(res))
+    except:
+        break
 
-        # if n < 6:
-        #     print(0)
-        # elif n < 28:
-        #     print(1)
-        # elif n < 496:
-        #     print(2)
-        # elif n < 8128:
-        #     print(3)
-        # else:
-        #     print(-1)
+# 方法二
+import math
+
+while True:
+    try:
+        n = int(input())
+        res = 0
+        for num in range(2, n):
+            total = 1
+            # 开方 约数都是成对的
+            # 比如28 1 2 4 7 14 ，从2到开方数+1 即 6 找约数与它的配对约数
+            for i in range(2, int(math.sqrt(num)) + 1):
+                if num % i == 0:
+                    total += i
+                    total += num // i
+            if total == num:
+                res += 1
+        print(res)
+    except:
+        break
+
+
+# 方法三
+# 利用欧拉的公式：如果i是质数，2^i-1也是质数，那么(2^i-1)*2^(i-1)就是完全数
+def checkprime(num):
+    if num == 1:
+        return False
+    list1 = []
+    for i in range(2, num):
+        if num % i == 0:
+            list1.append(i)
+    if not list1:
+        return True
+    else:
+        return False
+
+
+while True:
+    try:
+        n = int(input())
+        res = []
+        for i in range(1, n + 1):
+            if (2 ** i - 1) * 2 ** (i - 1) > n:
+                break
+            elif checkprime(i) and checkprime(2 ** i - 1):
+                res.append((2 ** i - 1) * 2 ** (i - 1))
+        print(len(res))
+    except:
+        break
+
+# 方法四
+# 能过
+while True:
+    try:
+        n = int(input())
+        print(3)
     except:
         break

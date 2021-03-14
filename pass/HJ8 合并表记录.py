@@ -25,6 +25,9 @@
 1 2
 3 4
 """
+
+# 注意同一个 key 进行累加
+
 while 1:
     try:
         n = int(input())

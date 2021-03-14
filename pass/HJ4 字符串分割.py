@@ -20,6 +20,10 @@ abc00000
 90000000
 """
 
+# 8 为补齐
+# len 大于 8 的切
+# len 小于 8 使用 ljust 补齐
+
 while 1:
     try:
         s = input()

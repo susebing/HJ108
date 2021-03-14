@@ -31,3 +31,20 @@ while True:
         print(s[index:index + n])
     except:
         break
+
+# 方法二 易懂
+while True:
+    try:
+        p = input()
+        n = int(input())
+        maxcount = 0
+        str1 = ''
+        for i in range(len(p) + 1 - n):
+            a = p[i:i + n]
+            xucount = a.count('C') + a.count('G')
+            if xucount > maxcount:
+                str1 = a
+                maxcount = xucount
+        print(str1)
+    except:
+        break

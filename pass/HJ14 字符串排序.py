@@ -33,6 +33,9 @@ too
 two
 up
 """
+
+# 使用 sorted 对字符串数组排序即可
+
 while 1:
     try:
         n = int(input())

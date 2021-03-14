@@ -50,6 +50,23 @@ D : 1
 Invalid : 4
 """
 
+# md,这道题一个坑就是要按照***的顺序输出，
+# 一定要注意。。python解法献上
+
+from collections import Counter
+
+while True:
+    try:
+        a, b, c, d, invalid = input(), input().split(), input(), input().split(), 0
+        cc = Counter(d)
+        for i in b:
+            print(i + " : " + str(cc[i]))
+            invalid += cc[i]
+        print("Invalid : " + str(len(d) - invalid))
+    except:
+        break
+
+# 方法二
 while True:
     try:
         a = int(input())

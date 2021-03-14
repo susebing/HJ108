@@ -51,6 +51,28 @@ Example:
 复制
 3
 """
+# 闹了半天，就是个最长上升子序列的问题。
+# 转化成求最长递增子序列
+# 这种问题要使用动态规划方法来解，一种时间复杂度为O(n)2，另一种为nlog(n)。
+# 提供一种nlog(n)的解法：
+# 方法一
+import bisect
+
+while True:
+    try:
+        a, b = int(input()), map(int, input().split())
+        q = []
+        for v in b:
+            pos = bisect.bisect_left(q, v)
+            if pos == len(q):
+                q.append(v)
+            else:
+                q[pos] = v
+        print(len(q))
+    except:
+        break
+
+# 方式二
 # https://docs.python.org/zh-cn/3.6/library/bisect.html
 import bisect
 
@@ -65,5 +87,38 @@ while True:
             else:
                 q[pos] = v
         print(len(q))
+    except:
+        break
+
+
+# 方法三
+# 利用动态规划求解，整个问题可以转换为从前到后到第几个桩走的步数最多。
+# 解析写在注释中(python版)：
+
+def GetResult(l):
+    n = len(l)  # 传入list的长度
+    dp = [1] * n  # dp[i]表示以第i个桩为结尾，最多走多少步，初始是1步（默认这个桩是跟它之前相比最矮的）
+    res = 0  # 整个问题的结果
+    for i in range(n):  # i表示第几个桩
+        for j in range(i):  # j表示i前面的桩
+            if l[i] > l[j]:  # 如果第i个桩前面有比它矮的（比如是j），
+                # 且以第j个桩为结尾走的步数是最多的，
+                # 步数就是dp[j]+1，加的这个1表示从第j个走1步到第i个桩；另一种就是dp[i],默认等于1，但是
+                # 遍历j的过程可能会更新这个值，因此取上述两个结果中最大的那个值，表示第i个桩为结尾，
+                # 最多走多少步
+                dp[i] = max(dp[i], dp[j] + 1)
+        res = max(res, dp[i])  # 到第i个桩时最多走几步
+    return res
+
+
+while True:
+    try:
+        n = int(input())  # 几个点
+        str_input = input().split()
+        l = [int(v) for v in str_input]  # 输入的数组成的集合
+        # l=[2,5,1,5,4,5]
+        # print(l)
+        ans = GetResult(l)
+        print(ans)
     except:
         break

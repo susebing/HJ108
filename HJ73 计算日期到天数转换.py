@@ -50,7 +50,17 @@ return 0;
 复制
 366
 """
+# python只需要一行就能通过，真是太简单了呢。
+# 方法一
+import datetime
 
+while True:
+    try:
+        print(datetime.datetime(*map(int, input().split())).strftime("%j").lstrip("0"))
+    except:
+        break
+
+# 方法二
 while 1:
     try:
         months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]

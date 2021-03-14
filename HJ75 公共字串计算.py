@@ -29,11 +29,16 @@ werasdfaswer
 6
 """
 
+# 使用较短字符串长度倒序遍历，取下标时在纸上推导很容易理解
+# 如果去较长的，时间复杂度更大
+
 while True:
     try:
         a = input()
         b = input()
         n = 0
+        if len(a) > len(b):
+            a, b = b, a
         for i in range(len(a)):
             if a[i - n:i + 1] in b:
                 n += 1

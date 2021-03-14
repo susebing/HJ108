@@ -24,4 +24,8 @@ I am a student
 tneduts a ma I
 """
 
+# [::-1] 逆序字符串，完全从最后一位开始输出
+# I am a student
+# tneduts a ma I
+
 print(input()[::-1])

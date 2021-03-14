@@ -15,6 +15,10 @@
 输出
 2
 """
+
+# 使用 bin 转换成2进制
+# 使用 count 统计 '1' 出现的次数
+
 while 1:
     try:
         a = int(input())

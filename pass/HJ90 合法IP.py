@@ -20,6 +20,9 @@
 YES
 """
 
+# 二进制8位数最大为11111111，转换为十进制就是255
+# 1.首先合法的IP地址为: A.B.C.D,其中A,B,C,D的取值范围为0-255。
+
 while True:
     try:
         ip = input().split(".")
@@ -31,5 +34,20 @@ while True:
                 isValid = False
                 break
         print("YES" if isValid else "NO")
+    except:
+        break
+
+# 方法二
+while True:
+    try:
+        # 遍历输入的每个段
+        for i in input().strip().split('.'):
+            # 如果是数字，并且该数字对应的整型在[0,256]范围内
+            if not (i.isdigit() and 0 <= int(i) <= 255):
+                print('NO')
+                break
+        # 如果上面的遍历没有触发break，则执行这个else，打印YES
+        else:
+            print('YES')
     except:
         break
