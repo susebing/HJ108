@@ -30,6 +30,23 @@ txt12.xls
 false
 """
 
+import re
+
+while True:
+    try:
+        a, b = input().strip(), input().strip()
+        a = a.replace("?", "\w{1}")\
+            .replace(".", "\.")\
+            .replace("*", "\w*")
+        c = re.findall(a, b)
+        if b in c and len(c) == 1:
+            print("true")
+        else:
+            print("false")
+    except:
+        break
+
+# 方法二
 while True:
     try:
         a = input()
@@ -51,20 +68,5 @@ while True:
                 flag = "false"
                 break
         print(flag)
-    except:
-        break
-
-# 方法二
-import re
-
-while True:
-    try:
-        a, b = input().strip(), input().strip()
-        a = a.replace("?", "\w{1}").replace(".", "\.").replace("*", "\w*")
-        c = re.findall(a, b)
-        if b in c and len(c) == 1:
-            print("true")
-        else:
-            print("false")
     except:
         break

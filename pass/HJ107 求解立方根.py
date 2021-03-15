@@ -32,7 +32,7 @@ while True:
         n = float(input())
         t = n
         while abs(t * t * t - n) > 0.0001:
-            t = t - (t * t * t - n) * 1.0 / (3 * t * t)
+            t = t-(t**3-n)*1.0/(3*t**2)
         print(round(t, 1))
     except:
         break

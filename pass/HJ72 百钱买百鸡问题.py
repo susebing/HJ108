@@ -50,9 +50,9 @@ while True:
         n = int(input())
         # 鸡公最多买20只
         for x in range(21):
-            y = (100 - 7 * x) / 4  # 鸡母的数量
-            z = 100 - x - y  # 鸡雏的数量
-            if y == int(y) and y >= 0 and z >= 0:
-                print(x, int(y), int(z))
+            for y in range(34):
+                z = 100 - x - y  # 鸡雏的数量
+                if z%3==0 and (x+y+z)==100 and (5*x+3*y+z/3==100):
+                    print(x, int(y), int(z))
     except EOFError:
         break
