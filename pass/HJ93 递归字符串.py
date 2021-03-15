@@ -41,9 +41,9 @@ while True:
 
         sum_arr5 = sum(arr5)
         sum_arr3 = sum(arr3)
-        sum_arr = sorted(arr, reverse=True)
+        left_arr = sorted(arr, reverse=True)
 
-        for i in sum_arr:
+        for i in left_arr:
             if sum_arr5 < sum_arr3:
                 sum_arr5 += i
             else:

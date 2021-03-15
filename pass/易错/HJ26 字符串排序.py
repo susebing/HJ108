@@ -30,15 +30,13 @@ A Famous Saying: Much Ado About Nothing (2012/8).
 A aaAAbc dFgghh: iimM nNn oooos Sttuuuy (2012/8).
 """
 
-
-
 while True:
     try:
         new = input()
         old = [0] * len(new)
         alpha = []
         for i in range(len(new)):
-            if (new[i].isalpha()):
+            if new[i].isalpha():
                 alpha.append(new[i])
             else:
                 old[i] = new[i]
