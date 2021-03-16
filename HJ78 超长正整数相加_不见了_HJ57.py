@@ -36,3 +36,10 @@ return null;
 
 
 # 华为OJ平台——超长正整数相加
+while 1:
+    try:
+        a = int(input())
+        b = int(input())
+        print(a+b)
+    except:
+        break
