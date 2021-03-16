@@ -29,16 +29,22 @@
 复制
 5
 """
-
-while 1:
+while True:
     try:
-        n = int(input())
-        m = list(map(int, input().split()))
-        x = list(map(int, input().split()))
-        res = [0]
-        for i in range(n):
-            tmp = [m[i] * j for j in range(x[i] + 1)]
-            res = list(set(a + b for a in tmp for b in res))
-        print(len(res))
+        a = int(input())
+        weight = list(map(int,input().split()))
+        count = list(map(int,input().split()))
+        fm,temp,ans = [],[],[0]
+        # 将所有砝码放入列表
+        for i in range(a):
+            for j in range(count[i]):
+                fm.append(weight[i])
+        # 称重
+        for i in fm:
+            temp = set(ans)
+            for j in temp:
+                ans.append(j+i)
+        # 去重
+        print(len(set(ans)))
     except:
         break
